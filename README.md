@@ -3,23 +3,15 @@
 ## Dependencies
 Click to visit and download the dependencies
 
-* [Node]
-(https://nodejs.org/en/)
-* [Yarn]
-(https://yarnpkg.com/en/) (Optional, but recommended)
-* [Vue]
-(https://vuejs.org/)
-* [Vuetify]
-(https://vuetifyjs.com/en/)
-* [date-fns]
-(https://date-fns.org/)
-* [Lodash]
-(https://lodash.com/)
-* [Apollo Client]
-(https://vue-apollo.netlify.com/)
+* [Node](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com/en/) (Optional, but recommended)
+* [Vue](https://vuejs.org/)
+* [Vuetify](https://vuetifyjs.com/en/)
+* [date-fns](https://date-fns.org/)
+* [Lodash](https://lodash.com/)
+* [Apollo Client](https://vue-apollo.netlify.com/)
 
-Recommended for Windows Platform: [Download CMDER]
-(https://cmder.net/)
+Recommended for Windows Platform: [Download CMDER](https://cmder.net/)
 
 ## Local Setup
 
@@ -85,6 +77,5 @@ This is an Open Source application and we take no responsibility for any issues,
 ## Contact Administrator
 Reach out to developers for feedback, queries and suggestions.
 
-* [Dipanjan De]
-(https://dipanjande.com) (Developer)
+* [Dipanjan De](https://dipanjande.com) (Developer)
 * Satinder Singh Butter (Project Manager)
