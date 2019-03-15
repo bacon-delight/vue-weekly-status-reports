@@ -6,7 +6,7 @@
 				<h2 class="grey--text">Record Details</h2>
 			</v-card-title>
 			<v-divider></v-divider>
-			<v-card-text>
+			<v-card-text style="max-height: 400px; overflow-y: scroll;">
 				<v-layout row wrap>
 					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Week Start:
