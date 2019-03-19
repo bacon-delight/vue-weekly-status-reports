@@ -1,5 +1,7 @@
 # Weekly Status Reports Application
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1873bdba-2935-4128-8c1c-c540c18e214e/deploy-status)](https://app.netlify.com/sites/philips-wsr/deploys)
+
 ## Dependencies
 Click to visit and download the dependencies
 
