@@ -67,7 +67,7 @@
 					{icon: 'archive', text: 'Report Archive 1', route: '/archive1'},
 					{icon: 'assignment', text: 'Report Template 2', route: '/template2'},
 					{icon: 'archive', text: 'Report Archive 2', route: '/archive2'},
-					{icon: 'chat_bubble_outline', text: 'Feedback', route: '/feedback'}
+					{icon: 'chat_bubble_outline', text: 'Issues & Feedback', route: '/feedback'}
 				]
 			}
 		},
