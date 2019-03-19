@@ -45,7 +45,7 @@ Recommended for Windows Platform: [Download CMDER](https://cmder.net/)
 
 ## Local Setup
 
-###### Clone the Repository
+#### Clone the Repository
 ```
 git clone https://github.com/bacon-delight/philips-wsr.git
 ```
@@ -56,53 +56,53 @@ This will clone the repository in a new folder called 'philips-wsr' inside the p
 git clone https://github.com/bacon-delight/philips-wsr.git .
 ```
 
-###### Install Node Dependencies
+#### Install Node Dependencies
 This requires node.js installed, please download and install the latest version from their official website given in the list of dependencies above.
 
 ```
 npm install
 ```
 
-###### Development Compile & Hot-Reload
+#### Development Compile & Hot-Reload
 For NPM Users:
 
 ```
-npm run serve
+###### npm run serve
 ```
 
-For Yarn Users:
+###### For Yarn Users:
 
 ```
 yarn serve
 ```
 
-###### Development Compile & Hot-Reload
-For NPM Users:
+#### Development Compile & Hot-Reload
+###### For NPM Users:
 
 ```
 npm run serve
 ```
 
-For Yarn Users:
+###### For Yarn Users:
 
 ```
 yarn serve
 ```
 
-###### Lints and Fixes
+#### Lints and Fixes
 
 ```
 npm run lint
 ```
 
-###### Run Tests
+#### Run Tests
 
 ```
 npm run lint
 ```
 
 ## Disclaimer
-This is an Open Source application and we take no responsibility for any issues, bugs and conflicts encountered while running this application in environments not controlled and managed by us.
+This is an Open Source application and we take no responsibility for any issues, bugs and conflicts encountered while running this application in environments not controlled and managed by us. Please read license for more information.
 
 ## Contact Administrator
 Reach out to developers for feedback, queries and suggestions.
