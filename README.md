@@ -1,5 +1,28 @@
-# Weekly Status Reports Application
+# Weekly Status Reports Application UI
 
+<p align="center">
+	<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/bacon-delight/philips-wsr.svg?style=for-the-badge">
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
+	<img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
+	<img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/bacon-delight/philips-wsr.svg?label=Open%20Issues&style=for-the-badge">
+	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed-raw/bacon-delight/philips-wsr.svg?label=Closed%20Issues&style=for-the-badge">
+	<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr-raw/bacon-delight/philips-wsr.svg?label=Pull%20Requests%20%28Open%29&style=for-the-badge">
+	<img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed-raw/bacon-delight/philips-wsr.svg?label=Pull%20Requests%20%28Closed%29&style=for-the-badge">
+</p>
+
+#### Preview Latest Releases
+<p>
+	<img alt="GitHub release" src="https://img.shields.io/github/release-pre/bacon-delight/philips-wsr.svg?label=Pre%20Release&style=for-the-badge">
+	<img alt="GitHub release" src="https://img.shields.io/github/release/bacon-delight/philips-wsr.svg?style=for-the-badge">
+</p>
+
+### Langauge Details
+<p>
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/bacon-delight/philips-wsr.svg?color=%23f45342&style=for-the-badge">
+	<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/bacon-delight/philips-wsr.svg?style=for-the-badge">
+</p>
+
+#### Preview in Netlify
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1873bdba-2935-4128-8c1c-c540c18e214e/deploy-status)](https://app.netlify.com/sites/philips-wsr/deploys)
 
 ## Dependencies
