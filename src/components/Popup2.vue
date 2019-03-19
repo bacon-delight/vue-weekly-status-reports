@@ -1,6 +1,6 @@
 <template>
 	<v-dialog max-width="700px" v-model="dialog">
-		<v-btn flat slot="activator" class="">View</v-btn>
+		<v-btn flat dark round small slot="activator" class="blue darken-1">View</v-btn>
 		<v-card>
 			<v-card-title>
 				<h2 class="grey--text">Record Details</h2>
@@ -92,6 +92,30 @@
 						{{ this.report.projectActivity }}
 					</v-flex>
 				</v-layout>
+				<v-layout row wrap>
+					<v-flex xs12 sm6 class="pa-2" id="topics">
+						Status:
+					</v-flex>
+					<v-flex xs12 sm6 class="pa-2" id="contents">
+						{{ this.report.status }}
+					</v-flex>
+				</v-layout>
+				<v-layout row wrap>
+					<v-flex xs12 sm6 class="pa-2" id="topics">
+						Phase:
+					</v-flex>
+					<v-flex xs12 sm6 class="pa-2" id="contents">
+						{{ this.report.phase }}
+					</v-flex>
+				</v-layout>
+				<v-layout row wrap>
+					<v-flex xs12 sm6 class="pa-2" id="topics">
+						Project Manager:
+					</v-flex>
+					<v-flex xs12 sm6 class="pa-2" id="contents">
+						{{ this.report.projectManager }}
+					</v-flex>
+				</v-layout>
 
 
 				<!-- Dates -->
@@ -100,7 +124,7 @@
 						Assigned Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date1 }}
+						{{ formatDate(this.report.date1) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -108,7 +132,7 @@
 						Temp Go Live Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date2 }}
+						{{ formatDate(this.report.date2) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -116,7 +140,7 @@
 						Start Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date3 }}
+						{{ formatDate(this.report.date3) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -124,7 +148,7 @@
 						Servers Available on PRS Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date4 }}
+						{{ formatDate(this.report.date4) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -132,7 +156,7 @@
 						Released for UAT Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date5 }}
+						{{ formatDate(this.report.date5) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -140,7 +164,7 @@
 						UAT Begin Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date6 }}
+						{{ formatDate(this.report.date6) }}
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -148,7 +172,23 @@
 						UAT End Date:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.date7 }}
+						{{ formatDate(this.report.date7) }}
+					</v-flex>
+				</v-layout>
+				<v-layout row wrap>
+					<v-flex xs12 sm6 class="pa-2" id="topics">
+						Go Live Date:
+					</v-flex>
+					<v-flex xs12 sm6 class="pa-2" id="contents">
+						{{ formatDate(this.report.date8) }}
+					</v-flex>
+				</v-layout>
+				<v-layout row wrap>
+					<v-flex xs12 sm6 class="pa-2" id="topics">
+						Transition to Support Date:
+					</v-flex>
+					<v-flex xs12 sm6 class="pa-2" id="contents">
+						{{ formatDate(this.report.date9) }}
 					</v-flex>
 				</v-layout>
 
@@ -186,8 +226,8 @@
 					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Comments:
 					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.comments }}
+					<v-flex xs12 sm6 class="pa-2">
+						<p id="comments">{{ this.report.comments }}</p>
 					</v-flex>
 				</v-layout>
 
@@ -202,6 +242,7 @@
 </template>
 
 <script>
+	import { format } from 'date-fns';
 	export default {
 		name: 'Popup2',
 		props: ['report'],
@@ -211,6 +252,11 @@
 			}
 		},
 		methods: {
+			formatDate(value) {
+				if (value == '')
+					return '';
+				return format(value, 'Do MMMM, YYYY');
+			}
 		}
 	}
 </script>
@@ -223,5 +269,9 @@
 	}
 	#contents {
 		font-size: 15px;
+	}
+	#comments {
+		font-size: 15px;
+		white-space: pre-line;
 	}
 </style>

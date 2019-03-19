@@ -1,6 +1,6 @@
 <template>
 	<v-dialog max-width="700px" v-model="dialog">
-		<v-btn flat slot="activator" class="">View</v-btn>
+		<v-btn flat dark round small slot="activator" class="blue darken-1">View</v-btn>
 		<v-card>
 			<v-card-title>
 				<h2 class="grey--text">Record Details</h2>
@@ -43,24 +43,24 @@
 					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Accomplishments:
 					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.accomplishments }}
+					<v-flex xs12 sm6 class="pa-2">
+						<p id="comments">{{ this.report.accomplishments }}</p>
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
 					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Plans for Next Period:
 					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.plans }}
+					<v-flex xs12 sm6 class="pa-2">
+						<p id="comments">{{ this.report.plans }}</p>
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
 					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Issues and Concerns:
 					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.issues }}
+					<v-flex xs12 sm6 class="pa-2">
+						<p id="comments">{{ this.report.issues }}</p>
 					</v-flex>
 				</v-layout>
 				<v-layout row wrap>
@@ -98,7 +98,7 @@
 			</v-card-text>
 			<v-divider></v-divider>
 			<v-card-actions>
-				<v-btn color="green darken-1" flat="flat" @click="dialog = false">Close</v-btn>
+				<v-btn color="green darken-1" flat @click="dialog = false">Close</v-btn>
 			</v-card-actions>
 		</v-card>
 	</v-dialog>
@@ -130,5 +130,9 @@
 	}
 	#contents {
 		font-size: 15px;
+	}
+	#comments {
+		font-size: 15px;
+		white-space: pre-line;
 	}
 </style>

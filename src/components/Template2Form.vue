@@ -3,25 +3,25 @@
 
 		<v-layout row wrap>
 			<v-flex xs12 class="px-3">
-				<v-text-field label="Year" prepend-icon="date_range" :rules="inputRules" v-model="year"></v-text-field>
+				<v-select :items="yearOptions" :rules="inputRules" prepend-icon="date_range" v-model="newReport.year" label="Year"></v-select>
 			</v-flex>
 		</v-layout>
 		
 		<v-layout row wrap>
 			<v-flex xs12 sm6 class="px-3">
-				<v-text-field label="Week Number" prepend-icon="date_range" :rules="inputRules" v-model="weekNumber"></v-text-field>
+				<v-select :items="weekOptions" :rules="inputRules" prepend-icon="date_range" v-model="newReport.weekNumber" label="Week Number"></v-select>
 			</v-flex>
 			<v-flex xs12 sm6 class="px-3">
-				<v-text-field label="Week Ending" prepend-icon="date_range" :rules="inputRules" v-model="weekEnding"></v-text-field>
+				<v-select :items="weekOptions" :rules="inputRules" prepend-icon="date_range" v-model="newReport.weekEnding" label="Week Ending"></v-select>
 			</v-flex>
 		</v-layout>
 
 		<v-layout row wrap>
 			<v-flex xs12 sm6 class="px-3">
-				<v-text-field label="Primary Resource Name" prepend-icon="person" :rules="inputRules" v-model="primary"></v-text-field>
+				<v-select :items="resourceOptions" prepend-icon="person" v-model="newReport.primary" :rules="inputRules" label="Primary Resource Name"></v-select>
 			</v-flex>
 			<v-flex xs12 sm6 class="px-3">
-				<v-text-field label="Secondary Resource Name" prepend-icon="person" v-model="secondary"></v-text-field>
+				<v-select :items="resourceOptions" prepend-icon="person" v-model="newReport.secondary" :rules="inputRules" label="Secondary Resource Name"></v-select>
 			</v-flex>
 		</v-layout>
 
@@ -32,10 +32,10 @@
 					<v-card-text class="px-4 grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 sm4 class="px-2">
-								<v-text-field label="Client Region" prepend-icon="language" v-model="clientRegion"></v-text-field>
+								<v-select :items="clientRegionOptions" prepend-icon="language" v-model="newReport.clientRegion" label="Client Region"></v-select>
 							</v-flex>
 							<v-flex xs12 sm8 class="px-2">
-								<v-text-field label="Client Name" prepend-icon="person" v-model="client"></v-text-field>
+								<v-text-field label="Client Name" prepend-icon="person" v-model="newReport.client"></v-text-field>
 							</v-flex>
 						</v-layout>
 					</v-card-text>
@@ -50,13 +50,22 @@
 					<v-card-text class="grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 class="px-2">
-								<v-text-field label="Project Name" prepend-icon="turned_in_not" v-model="projectName"></v-text-field>
+								<v-select :items="projectNameOptions" prepend-icon="turned_in_not" v-model="newReport.projectName" label="Project Name"></v-select>
+							</v-flex>
+							<v-flex xs12 class="px-2">
+								<v-select :items="projectManagerOptions" prepend-icon="person" v-model="newReport.projectManager" label="Project Manager"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-text-field label="Project Product" prepend-icon="shopping_cart" v-model="projectProduct"></v-text-field>
+								<v-select :items="projectProductOptions" prepend-icon="shopping_cart" v-model="newReport.projectProduct" label="Project Product"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-text-field label="Project Activity" prepend-icon="trending_up" v-model="projectActivity"></v-text-field>
+								<v-select :items="projectActivityOptions" prepend-icon="trending_up" v-model="newReport.projectActivity" label="Project Activity"></v-select>
+							</v-flex>
+							<v-flex xs12 md6 class="px-2">
+								<v-select :items="statusOptions" prepend-icon="gavel" v-model="newReport.status" label="Status"></v-select>
+							</v-flex>
+							<v-flex xs12 md6 class="px-2">
+								<v-select :items="phaseOptiona" prepend-icon="hourglass_empty" v-model="newReport.phase" label="Phase"></v-select>
 							</v-flex>
 						</v-layout>
 					</v-card-text>
@@ -71,86 +80,110 @@
 					<v-card-text class="px-4 grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu1" v-model="menu1" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date1" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu1" v-model="menu1" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date1" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date1" label="Assigned Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date1" label="Assigned Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date1" no-title scrollable>
+									<v-date-picker v-model="newReport.date1" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu1 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu1.save(date1)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu1.save(newReport.date1)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu2" v-model="menu2" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date2" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu2" v-model="menu2" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date2" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date2" label="Temp Go Live Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date2" label="Temp Go Live Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date2" no-title scrollable>
+									<v-date-picker v-model="newReport.date2" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu2 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu2.save(date2)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu2.save(newReport.date2)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu3" v-model="menu3" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date3" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu3" v-model="menu3" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date3" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date3" label="Start Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date3" label="Start Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date3" no-title scrollable>
+									<v-date-picker v-model="newReport.date3" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu3 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu3.save(date3)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu3.save(newReport.date3)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu4" v-model="menu4" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date4" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu4" v-model="menu4" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date4" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date4" label="Servers Available on PRS Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date4" label="Servers Available on PRS Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date4" no-title scrollable>
+									<v-date-picker v-model="newReport.date4" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu4 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu4.save(date4)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu4.save(newReport.date4)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu5" v-model="menu5" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date5" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu5" v-model="menu5" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date5" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date5" label="Released for UAT Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date5" label="Released for UAT Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date5" no-title scrollable>
+									<v-date-picker v-model="newReport.date5" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu5 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu5.save(date5)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu5.save(newReport.date5)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu6" v-model="menu6" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date6" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu6" v-model="menu6" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date6" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date6" label="UAT Begin Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date6" label="UAT Begin Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date6" no-title scrollable>
+									<v-date-picker v-model="newReport.date6" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu6 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu6.save(date6)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu6.save(newReport.date6)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
 							<v-flex xs12 md4 class="pa-2">
-								<v-menu ref="menu7" v-model="menu7" :close-on-content-click="false" :nudge-right="40" :return-value.sync="date7" lazy transition="scale-transition" offset-y full-width min-width="290px">
+								<v-menu ref="menu7" v-model="menu7" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date7" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="date7" label="UAT End Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date7" label="UAT End Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
-									<v-date-picker v-model="date7" no-title scrollable>
+									<v-date-picker v-model="newReport.date7" no-title scrollable>
 										<v-spacer></v-spacer>
 										<v-btn flat color="primary" @click="menu7 = false">Cancel</v-btn>
-										<v-btn flat color="primary" @click="$refs.menu7.save(date7)">OK</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu7.save(newReport.date7)">OK</v-btn>
+									</v-date-picker>
+								</v-menu>
+							</v-flex>
+							<v-flex xs12 md4 class="pa-2">
+								<v-menu ref="menu8" v-model="menu8" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date8" lazy transition="scale-transition" offset-y full-width min-width="290px">
+									<template v-slot:activator="{ on }">
+										<v-text-field v-model="newReport.date8" label="Go Live Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+									</template>
+									<v-date-picker v-model="newReport.date8" no-title scrollable>
+										<v-spacer></v-spacer>
+										<v-btn flat color="primary" @click="menu8 = false">Cancel</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu8.save(newReport.date8)">OK</v-btn>
+									</v-date-picker>
+								</v-menu>
+							</v-flex>
+							<v-flex xs12 md4 class="pa-2">
+								<v-menu ref="menu9" v-model="menu9" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date9" lazy transition="scale-transition" offset-y full-width min-width="290px">
+									<template v-slot:activator="{ on }">
+										<v-text-field v-model="newReport.date9" label="Transition to Support Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+									</template>
+									<v-date-picker v-model="newReport.date9" no-title scrollable>
+										<v-spacer></v-spacer>
+										<v-btn flat color="primary" @click="menu9 = false">Cancel</v-btn>
+										<v-btn flat color="primary" @click="$refs.menu9.save(newReport.date9)">OK</v-btn>
 									</v-date-picker>
 								</v-menu>
 							</v-flex>
@@ -167,13 +200,13 @@
 					<v-card-text class="px-4 grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 class="pa-2">
-								<v-text-field label="Assigned for Time Entry" prepend-icon="restore" v-model="timeEntry"></v-text-field>
+								<v-select :items="timeEntryOptions" prepend-icon="restore" v-model="newReport.timeEntry" label="Assigned for Time Entry"></v-select>
 							</v-flex>
 							<v-flex xs12 sm6 class="pa-2">
-								<v-text-field label="One EMS Number" prepend-icon="style" v-model="opemEms"></v-text-field>
+								<v-text-field label="One EMS Number" prepend-icon="style" v-model="newReport.opemEms"></v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 class="pa-2">
-								<v-text-field label="Total Billed Hours" prepend-icon="attach_money" v-model="totalBilled"></v-text-field>
+								<v-text-field label="Total Billed Hours" prepend-icon="attach_money" v-model="newReport.totalBilled"></v-text-field>
 							</v-flex>
 						</v-layout>
 					</v-card-text>
@@ -183,7 +216,7 @@
 
 		<v-layout row wrap>
 			<v-flex xs12 class="px-3">
-				<v-textarea label="Comments" prepend-icon="comment" v-model="comments"></v-textarea>
+				<v-textarea label="Comments" prepend-icon="comment" v-model="newReport.comments"></v-textarea>
 			</v-flex>
 		</v-layout>
 
@@ -195,6 +228,7 @@
 </template>
 
 <script>
+	import { startOfToday, getYear, getISOWeek } from 'date-fns';
 	import { mapMutations } from 'vuex';
 	export default {
 		name: 'Template2Form',
@@ -204,14 +238,17 @@
 				inputRules: [
 					inputData => inputData.length >0 || 'Cannot be empty'
 				],
-				year: '',
-				date1: '',
-				date2: '',
-				date3: '',
-				date4: '',
-				date5: '',
-				date6: '',
-				date7: '',
+				yearOptions: [],
+				weekOptions: [],
+				resourceOptions: this.$store.state.optionsT2.resourceOptions,
+				clientRegionOptions: this.$store.state.optionsT2.clientRegionOptions,
+				projectProductOptions: this.$store.state.optionsT2.projectProductOptions,
+				projectActivityOptions: this.$store.state.optionsT2.projectActivityOptions,
+				statusOptions: this.$store.state.optionsT2.statusOptions,
+				phaseOptiona: this.$store.state.optionsT2.phaseOptiona,
+				timeEntryOptions: this.$store.state.optionsT2.timeEntryOptions,
+				projectNameOptions: this.$store.state.optionsT2.projectNameOptions,
+				projectManagerOptions: this.$store.state.optionsT2.projectManagerOptions,
 				menu1: false,
 				menu2: false,
 				menu3: false,
@@ -219,20 +256,60 @@
 				menu5: false,
 				menu6: false,
 				menu7: false,
-				weekNumber: '',
-				weekEnding: '',
-				primary: '',
-				secondary: '',
-				clientRegion: '',
-				client: '',
-				projectProduct: '',
-				projectName: '',
-				projectActivity: '',
-				timeEntry: '',
-				opemEms: '',
-				totalBilled: '',
-				comments: ''
+				menu8: false,
+				menu9: false,
+				newReport: {
+					year: '',
+					weekNumber: '',
+					weekEnding: '',
+					primary: '',
+					secondary: '',
+					clientRegion: '',
+					client: '',
+					projectProduct: '',
+					projectName: '',
+					projectActivity: '',
+					status: '',
+					phase: '',
+					projectManager: '',
+					date1: '',
+					date2: '',
+					date3: '',
+					date4: '',
+					date5: '',
+					date6: '',
+					date7: '',
+					date8: '',
+					date9: '',
+					timeEntry: '',
+					opemEms: '',
+					totalBilled: '',
+					comments: ''
+				}
 			}
+		},
+		mounted() {
+			//Generate Years Array
+			var startYear = 2000 ;
+			while(startYear<=2030)
+			{
+				this.yearOptions.push(String(startYear++));
+			}
+
+			//Generate Weeks Array
+			var startWeek = 1 ;
+			while(startWeek<=53)
+			{
+				this.weekOptions.push(String(startWeek++));
+			}
+
+			//Populate Year
+			var today = startOfToday();
+			this.newReport.year = String(getYear(today));
+
+			//Populate Week Number & Week Ending
+			this.newReport.weekNumber = String(getISOWeek(today));
+			this.newReport.weekEnding = String(getISOWeek(today)+1);
 		},
 		methods: {
 			...mapMutations([
@@ -240,37 +317,43 @@
 			]),
 			submit(e) {
 				e.preventDefault();
+				
 				if(this.$refs.form.validate())
 				{
 					this.ADD_REPORTST2({
-						year: this.year,
-						date1: this.date1,
-						date2: this.date2,
-						date3: this.date3,
-						date4: this.date4,
-						date5: this.date5,
-						date6: this.date6,
-						date7: this.date7,
-						weekNumber: this.weekNumber,
-						weekEnding: this.weekEnding,
-						primary: this.primary,
-						secondary: this.secondary,
-						clientRegion: this.clientRegion,
-						client: this.client,
-						projectProduct: this.projectProduct,
-						projectName: this.projectName,
-						projectActivity: this.projectActivity,
-						timeEntry: this.timeEntry,
-						opemEms: this.opemEms,
-						totalBilled: this.totalBilled,
-						comments: this.comments
+						year: this.newReport.year,
+						weekNumber: this.newReport.weekNumber,
+						weekEnding: this.newReport.weekEnding,
+						primary: this.newReport.primary,
+						secondary: this.newReport.secondary,
+						clientRegion: this.newReport.clientRegion,
+						client: this.newReport.client,
+						projectProduct: this.newReport.projectProduct,
+						projectName: this.newReport.projectName,
+						projectActivity: this.newReport.projectActivity,
+						status: this.newReport.status,
+						phase: this.newReport.phase,
+						projectManager: this.newReport.projectManager,
+						date1: this.newReport.date1,
+						date2: this.newReport.date2,
+						date3: this.newReport.date3,
+						date4: this.newReport.date4,
+						date5: this.newReport.date5,
+						date6: this.newReport.date6,
+						date7: this.newReport.date7,
+						date8: this.newReport.date8,
+						date9: this.newReport.date9,
+						timeEntry: this.newReport.timeEntry,
+						opemEms: this.newReport.opemEms,
+						totalBilled: this.newReport.totalBilled,
+						comments: this.newReport.comments
 					});
 
 					//Show Snackbar
 					this.$emit('actionSuccess');
 
 					//Clear the Form
-					this.$refs.form.reset()
+					this.$refs.form.reset();
 				}
 			}
 		}

@@ -1,20 +1,25 @@
 <template>
-	<div>
-		<v-layout>
-			<v-flex xs1 md8>
-				
-			</v-flex>
-			<v-flex xs11 md4>
-				<v-text-field outline v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
-			</v-flex>
-		</v-layout>
-		<v-data-table :headers="headers" :items="holidays" :search="search">
-			<template v-slot:items="props">
-				<td>{{ formatDate(props.item.date) }}</td>
-				<td>{{ props.item.comment }}</td>
-			</template>
-		</v-data-table>
-	</div>
+	<v-card>
+		<v-card-title>
+			<v-layout>
+				<v-flex xs12 md8>
+					<h2 class="grey--text">Planned Holidays</h2>
+				</v-flex>
+				<v-flex xs12 md4>
+					<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+				</v-flex>
+			</v-layout>
+		</v-card-title>
+		<v-divider></v-divider>
+		<v-card-text>
+			<v-data-table :headers="headers" :items="holidays" :search="search">
+				<template v-slot:items="props">
+					<td>{{ formatDate(props.item.date) }}</td>
+					<td>{{ props.item.comment }}</td>
+				</template>
+			</v-data-table>
+		</v-card-text>
+	</v-card>
 </template>
 
 <script>

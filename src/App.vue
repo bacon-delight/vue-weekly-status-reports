@@ -2,7 +2,7 @@
 	<v-app class="grey lighten-2">
 		<Navbar />
 		<v-content class="mx-4 mt-4 mb-4" id="mainContainer">
-			<transition name="router-anim" enter-active-class="animated fadeInRight" leave-active-class="fadeOutLeft">
+			<transition name="router-anim" enter-active-class="animated fadeInRight">
 				<router-view/>
 			</transition>
 		</v-content>
@@ -25,5 +25,5 @@
 </script>
 
 <style>
-@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
+	@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
 </style>

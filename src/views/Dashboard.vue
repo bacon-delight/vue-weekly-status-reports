@@ -33,15 +33,7 @@
 
 
 				<v-flex xs12 class="pa-3">
-					<v-card>
-						<v-card-title>
-							<h2 class="grey--text">Planned Holidays</h2>
-						</v-card-title>
-						<v-divider></v-divider>
-						<v-card-text>
-							<HolidayList />
-						</v-card-text>
-					</v-card>
+					<HolidayList />
 				</v-flex>
 
 

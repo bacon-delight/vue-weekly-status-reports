@@ -9,6 +9,7 @@ Click to visit and download the dependencies
 * [Vuetify](https://vuetifyjs.com/en/)
 * [date-fns](https://date-fns.org/)
 * [Lodash](https://lodash.com/)
+* [Papaparse](https://www.papaparse.com/)
 * [Apollo Client](https://vue-apollo.netlify.com/)
 
 Recommended for Windows Platform: [Download CMDER](https://cmder.net/)

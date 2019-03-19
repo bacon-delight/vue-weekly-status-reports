@@ -12,7 +12,6 @@
 		</v-card-title>
 		<v-divider></v-divider>
 		<v-card-text>
-			
 			<v-data-table :headers="headers" :items="reports" :search="search">
 				<template v-slot:items="props">
 					<td>{{ formatDate(props.item.weekstart) }}</td>
