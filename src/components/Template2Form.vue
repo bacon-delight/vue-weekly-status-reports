@@ -18,10 +18,10 @@
 
 		<v-layout row wrap>
 			<v-flex xs12 sm6 class="px-3">
-				<v-select :items="resourceOptions" prepend-icon="person" v-model="newReport.primary" :rules="inputRules" label="Primary Resource Name"></v-select>
+				<v-select :items="this.$store.state.optionsT2.resourceOptions" prepend-icon="person" v-model="newReport.primary" :rules="inputRules" label="Primary Resource Name"></v-select>
 			</v-flex>
 			<v-flex xs12 sm6 class="px-3">
-				<v-select :items="resourceOptions" prepend-icon="person" v-model="newReport.secondary" :rules="inputRules" label="Secondary Resource Name"></v-select>
+				<v-select :items="this.$store.state.optionsT2.resourceOptions" prepend-icon="person" v-model="newReport.secondary" :rules="inputRules" label="Secondary Resource Name"></v-select>
 			</v-flex>
 		</v-layout>
 
@@ -32,7 +32,7 @@
 					<v-card-text class="px-4 grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 sm4 class="px-2">
-								<v-select :items="clientRegionOptions" prepend-icon="language" v-model="newReport.clientRegion" label="Client Region"></v-select>
+								<v-select :items="this.$store.state.optionsT2.clientRegionOptions" prepend-icon="language" v-model="newReport.clientRegion" label="Client Region"></v-select>
 							</v-flex>
 							<v-flex xs12 sm8 class="px-2">
 								<v-text-field label="Client Name" prepend-icon="person" v-model="newReport.client"></v-text-field>
@@ -50,22 +50,22 @@
 					<v-card-text class="grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 class="px-2">
-								<v-select :items="projectNameOptions" prepend-icon="turned_in_not" v-model="newReport.projectName" label="Project Name"></v-select>
+								<v-select :items="this.$store.state.optionsT2.projectNameOptions" prepend-icon="turned_in_not" v-model="newReport.projectName" label="Project Name"></v-select>
 							</v-flex>
 							<v-flex xs12 class="px-2">
-								<v-select :items="projectManagerOptions" prepend-icon="person" v-model="newReport.projectManager" label="Project Manager"></v-select>
+								<v-select :items="this.$store.state.optionsT2.projectManagerOptions" prepend-icon="person" v-model="newReport.projectManager" label="Project Manager"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="projectProductOptions" prepend-icon="shopping_cart" v-model="newReport.projectProduct" label="Project Product"></v-select>
+								<v-select :items="this.$store.state.optionsT2.projectProductOptions" prepend-icon="shopping_cart" v-model="newReport.projectProduct" label="Project Product"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="projectActivityOptions" prepend-icon="trending_up" v-model="newReport.projectActivity" label="Project Activity"></v-select>
+								<v-select :items="this.$store.state.optionsT2.projectActivityOptions" prepend-icon="trending_up" v-model="newReport.projectActivity" label="Project Activity"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="statusOptions" prepend-icon="gavel" v-model="newReport.status" label="Status"></v-select>
+								<v-select :items="this.$store.state.optionsT2.statusOptions" prepend-icon="gavel" v-model="newReport.status" label="Status"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="phaseOptiona" prepend-icon="hourglass_empty" v-model="newReport.phase" label="Phase"></v-select>
+								<v-select :items="this.$store.state.optionsT2.phaseOptiona" prepend-icon="hourglass_empty" v-model="newReport.phase" label="Phase"></v-select>
 							</v-flex>
 						</v-layout>
 					</v-card-text>
@@ -200,7 +200,7 @@
 					<v-card-text class="px-4 grey--text">
 						<v-layout row wrap>
 							<v-flex xs12 class="pa-2">
-								<v-select :items="timeEntryOptions" prepend-icon="restore" v-model="newReport.timeEntry" label="Assigned for Time Entry"></v-select>
+								<v-select :items="this.$store.state.optionsT2.timeEntryOptions" prepend-icon="restore" v-model="newReport.timeEntry" label="Assigned for Time Entry"></v-select>
 							</v-flex>
 							<v-flex xs12 sm6 class="pa-2">
 								<v-text-field label="One EMS Number" prepend-icon="style" v-model="newReport.opemEms"></v-text-field>
@@ -230,6 +230,7 @@
 <script>
 	import { startOfToday, getYear, getISOWeek } from 'date-fns';
 	import { mapMutations } from 'vuex';
+	import { PUBLISH_REPORT2 } from '../constants/graphql.js';
 	export default {
 		name: 'Template2Form',
 		data() {
@@ -240,15 +241,6 @@
 				],
 				yearOptions: [],
 				weekOptions: [],
-				resourceOptions: this.$store.state.optionsT2.resourceOptions,
-				clientRegionOptions: this.$store.state.optionsT2.clientRegionOptions,
-				projectProductOptions: this.$store.state.optionsT2.projectProductOptions,
-				projectActivityOptions: this.$store.state.optionsT2.projectActivityOptions,
-				statusOptions: this.$store.state.optionsT2.statusOptions,
-				phaseOptiona: this.$store.state.optionsT2.phaseOptiona,
-				timeEntryOptions: this.$store.state.optionsT2.timeEntryOptions,
-				projectNameOptions: this.$store.state.optionsT2.projectNameOptions,
-				projectManagerOptions: this.$store.state.optionsT2.projectManagerOptions,
 				menu1: false,
 				menu2: false,
 				menu3: false,
@@ -320,40 +312,75 @@
 				
 				if(this.$refs.form.validate())
 				{
-					this.ADD_REPORTST2({
-						year: this.newReport.year,
-						weekNumber: this.newReport.weekNumber,
-						weekEnding: this.newReport.weekEnding,
-						primary: this.newReport.primary,
-						secondary: this.newReport.secondary,
-						clientRegion: this.newReport.clientRegion,
-						client: this.newReport.client,
-						projectProduct: this.newReport.projectProduct,
-						projectName: this.newReport.projectName,
-						projectActivity: this.newReport.projectActivity,
-						status: this.newReport.status,
-						phase: this.newReport.phase,
-						projectManager: this.newReport.projectManager,
-						date1: this.newReport.date1,
-						date2: this.newReport.date2,
-						date3: this.newReport.date3,
-						date4: this.newReport.date4,
-						date5: this.newReport.date5,
-						date6: this.newReport.date6,
-						date7: this.newReport.date7,
-						date8: this.newReport.date8,
-						date9: this.newReport.date9,
-						timeEntry: this.newReport.timeEntry,
-						opemEms: this.newReport.opemEms,
-						totalBilled: this.newReport.totalBilled,
-						comments: this.newReport.comments
+
+					this.$apollo.mutate({
+						mutation: PUBLISH_REPORT2,
+						variables: {
+							userId: this.$store.state.username,
+							year: this.newReport.year,
+							weekNumber: this.newReport.weekNumber,
+							weekEnding: this.newReport.weekEnding,
+							primary: this.newReport.primary,
+							secondary: this.newReport.secondary,
+							clientRegion: this.newReport.clientRegion,
+							client: this.newReport.client,
+							projectProduct: this.newReport.projectProduct,
+							projectName: this.newReport.projectName,
+							projectActivity: this.newReport.projectActivity,
+							status: this.newReport.status,
+							phase: this.newReport.phase,
+							projectManager: this.newReport.projectManager,
+							date1: this.newReport.date1,
+							date2: this.newReport.date2,
+							date3: this.newReport.date3,
+							date4: this.newReport.date4,
+							date5: this.newReport.date5,
+							date6: this.newReport.date6,
+							date7: this.newReport.date7,
+							date8: this.newReport.date8,
+							date9: this.newReport.date9,
+							timeEntry: this.newReport.timeEntry,
+							opemEms: this.newReport.opemEms,
+							totalBilled: this.newReport.totalBilled,
+							comments: this.newReport.comments
+						}
+					}).then(() => {
+						//Add Mutation to Vuex
+						this.ADD_REPORTST2({
+							year: this.newReport.year,
+							weekNumber: this.newReport.weekNumber,
+							weekEnding: this.newReport.weekEnding,
+							primary: this.newReport.primary,
+							secondary: this.newReport.secondary,
+							clientRegion: this.newReport.clientRegion,
+							client: this.newReport.client,
+							projectProduct: this.newReport.projectProduct,
+							projectName: this.newReport.projectName,
+							projectActivity: this.newReport.projectActivity,
+							status: this.newReport.status,
+							phase: this.newReport.phase,
+							projectManager: this.newReport.projectManager,
+							date1: this.newReport.date1,
+							date2: this.newReport.date2,
+							date3: this.newReport.date3,
+							date4: this.newReport.date4,
+							date5: this.newReport.date5,
+							date6: this.newReport.date6,
+							date7: this.newReport.date7,
+							date8: this.newReport.date8,
+							date9: this.newReport.date9,
+							timeEntry: this.newReport.timeEntry,
+							opemEms: this.newReport.opemEms,
+							totalBilled: this.newReport.totalBilled,
+							comments: this.newReport.comments
+						});
+
+						//Show Snackbar
+						this.$emit('actionSuccess');
 					});
 
-					//Show Snackbar
-					this.$emit('actionSuccess');
-
 					//Clear the Form
-					this.$refs.form.reset();
+					//this.$refs.form.reset();
 				}
 			}
 		}

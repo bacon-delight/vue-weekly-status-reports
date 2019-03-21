@@ -12,7 +12,7 @@
 		</v-card-title>
 		<v-divider></v-divider>
 		<v-card-text>
-			<v-data-table :headers="headers" :items="reports" :search="search">
+			<v-data-table :headers="headers" :items="this.$store.state.reportsT1" :search="search">
 				<template v-slot:items="props">
 					<td>{{ formatDate(props.item.weekstart) }}</td>
 					<td>{{ formatDate(props.item.weekend) }}</td>
@@ -30,6 +30,8 @@
 <script>
 	import { format } from 'date-fns';
 	import Popup1 from '@/components/Popup1.vue';
+	import { FETCH_USER_ARCHIVE1 } from '../constants/graphql.js';
+
 	export default {
 		name: 'Archive1',
 		data() {
@@ -41,13 +43,25 @@
 					{text: 'Project', value: 'project'},
 					{text: 'View', value: '', sortable: false},
 				],
-				reports: this.$store.state.reportsT1,
 				search: '',
-				test: 'data-here'
 			}
 		},
 		components: {
 			Popup1
+		},
+		apollo: {
+			userArchive1s: {
+				query: FETCH_USER_ARCHIVE1,
+				variables() {
+					return {
+						userId: this.$store.state.username
+					}
+				},
+				result(response) {
+					// Commit to Store
+					this.$store.commit('FETCH_REPORTS1',response.data.userArchive1s);
+				}
+			}
 		},
 		methods: {
 			formatDate(value) {

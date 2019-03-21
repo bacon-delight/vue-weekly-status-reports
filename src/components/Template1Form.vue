@@ -75,6 +75,7 @@
 
 <script>
 	import { mapMutations } from 'vuex';
+	import { PUBLISH_REPORT1 } from '../constants/graphql.js';
 	import { startOfToday, endOfISOWeek, startOfISOWeek, addDays, format } from 'date-fns';
 	export default {
 		name: 'Template1Form',
@@ -115,26 +116,44 @@
 				e.preventDefault();
 				if(this.$refs.form.validate())
 				{
-					//Add Mutation
-					this.ADD_REPORTST1({
-						weekstart: this.newReport.weekstart,
-						weekend: this.newReport.weekend,
-						distribution: this.newReport.distribution,
-						project: this.newReport.project,
-						accomplishments: this.newReport.accomplishments,
-						plans: this.newReport.plans,
-						issues: this.newReport.issues,
-						bh: this.newReport.bh,
-						nbh: this.newReport.nbh,
-						expenses: this.newReport.expenses,
-						expensesNext: this.newReport.expensesNext
+					this.$apollo.mutate({
+						mutation: PUBLISH_REPORT1,
+						variables: {
+							userId: this.$store.state.username,
+							weekstart: this.newReport.weekstart,
+							weekend: this.newReport.weekend,
+							distribution: this.newReport.distribution,
+							project: this.newReport.project,
+							accomplishments: this.newReport.accomplishments,
+							plans: this.newReport.plans,
+							issues: this.newReport.issues,
+							bh: this.newReport.bh,
+							nbh: this.newReport.nbh,
+							expenses: this.newReport.expenses,
+							expensesNext: this.newReport.expensesNext
+						}
+					}).then(() => {
+						//Add Mutation to Vuex
+						this.ADD_REPORTST1({
+							weekstart: this.newReport.weekstart,
+							weekend: this.newReport.weekend,
+							distribution: this.newReport.distribution,
+							project: this.newReport.project,
+							accomplishments: this.newReport.accomplishments,
+							plans: this.newReport.plans,
+							issues: this.newReport.issues,
+							bh: this.newReport.bh,
+							nbh: this.newReport.nbh,
+							expenses: this.newReport.expenses,
+							expensesNext: this.newReport.expensesNext
+						});
+
+						//Show Snackbar
+						this.$emit('actionSuccess');
 					});
 
-					//Show Snackbar
-					this.$emit('actionSuccess');
-
 					//Clear the Form
-					this.$refs.form.reset()
+					//this.$refs.form.reset()
 				}
 			}
 		}

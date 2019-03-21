@@ -20,6 +20,12 @@
 			return {
 				
 			}
+		},
+		updated() {
+			if(this.$store.state.username == '')
+			{
+				this.$store.commit('REFRESH_USER', sessionStorage.getItem("user")) ;
+			}
 		}
 	}
 </script>

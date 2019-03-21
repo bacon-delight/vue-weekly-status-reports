@@ -52,6 +52,10 @@
 				{
 					this.loading = true;
 					this.REFRESH_USER(this.username);
+
+					//Add into Session
+					sessionStorage.setItem("user",this.username);
+					
 					setTimeout(() => this.$router.push('dashboard'), 1500);
 				}
 			}

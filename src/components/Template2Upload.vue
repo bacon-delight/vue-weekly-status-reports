@@ -48,6 +48,7 @@
 							</v-layout>
 						</v-card>
 						<v-btn color="primary" @click="e6 = 3" :disabled="stepDisable">Continue</v-btn>
+						<v-btn @click="e6 = 1">Go Back</v-btn>
 					</v-stepper-content>
 
 					<v-stepper-step :complete="e6 > 3" step="3">
@@ -98,6 +99,7 @@
 	import { format, startOfToday, getYear } from 'date-fns';
 	import Papa from 'papaparse';
 	import UploadButton from 'vuetify-upload-button';
+	import { PUBLISH_REPORT2 } from '../constants/graphql.js';
 	var _ = require('lodash');
 
 	//Other Components
@@ -155,8 +157,43 @@
 				return format(value, 'Do MMMM, YYYY');
 			},
 			submitData() {
+				//Send Mutation to GraphQL via Apollo
+				_.forEach(this.reports, (report) => {
+					this.$apollo.mutate({
+						mutation: PUBLISH_REPORT2,
+						variables: {
+							userId: this.$store.state.username,
+							year: report.year,
+							weekNumber: report.weekNumber,
+							weekEnding: report.weekEnding,
+							primary: report.primary,
+							secondary: report.secondary,
+							clientRegion: report.clientRegion,
+							client: report.client,
+							projectProduct: report.projectProduct,
+							projectName: report.projectName,
+							projectActivity: report.projectActivity,
+							status: report.status,
+							phase: report.phase,
+							projectManager: report.projectManager,
+							date1: report.date1,
+							date2: report.date2,
+							date3: report.date3,
+							date4: report.date4,
+							date5: report.date5,
+							date6: report.date6,
+							date7: report.date7,
+							date8: report.date8,
+							date9: report.date9,
+							timeEntry: report.timeEntry,
+							opemEms: report.opemEms,
+							totalBilled: report.totalBilled,
+							comments: report.comments
+						}
+					});
+				});
 
-				//Add Mutation
+				//Add Mutation in Vuex
 				this.ADD_REPORTST2_BULK(this.reports);
 
 				//Clear Data and Reset Dialog to Default

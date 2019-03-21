@@ -13,12 +13,11 @@
 		<v-divider></v-divider>
 		<v-card-text>
 			
-			<v-data-table :headers="headers" :items="reports" :search="search">
+			<v-data-table :headers="headers" :items="this.$store.state.reportsT2" :search="search">
 				<template v-slot:items="props">
 					<td>{{ props.item.year }}</td>
 					<td>{{ props.item.weekNumber }}</td>
 					<td>{{ props.item.weekEnding }}</td>
-					<td>{{ props.item.primary }}</td>
 					<td>{{ props.item.client }}</td>
 					<td>{{ props.item.projectName }}</td>
 					<td>
@@ -32,6 +31,7 @@
 
 <script>
 	import Popup2 from '@/components/Popup2.vue';
+	import { FETCH_USER_ARCHIVE2 } from '../constants/graphql.js';
 	export default {
 		name: 'Archive2',
 		data() {
@@ -40,13 +40,25 @@
 					{text: 'Year', value: 'year'},
 					{text: 'Week Number', value: 'weekNumber'},
 					{text: 'Week Ending', value: 'weekEnding'},
-					{text: 'Primary Resource', value: 'primary'},
 					{text: 'Client', value: 'client'},
 					{text: 'Project', value: 'projectName'},
 					{text: 'View', value: '', sortable: false},
 				],
-				reports: this.$store.state.reportsT2,
 				search: ''
+			}
+		},
+		apollo: {
+			userArchive2s: {
+				query: FETCH_USER_ARCHIVE2,
+				variables() {
+					return {
+						userId: this.$store.state.username
+					}
+				},
+				result(response) {
+					// Commit to Store
+					this.$store.commit('FETCH_REPORTS2',response.data.userArchive2s);
+				}
 			}
 		},
 		components: {

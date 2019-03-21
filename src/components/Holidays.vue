@@ -27,7 +27,7 @@
 
 <script>
 	import { isAfter, startOfToday, isSunday, isSaturday } from 'date-fns';
-	import { mapMutations } from 'vuex';
+	import { ADD_USER_HOLIDAY_MUTATION } from '../constants/graphql.js';
 	export default {
 		name: 'Holidays',
 		data() {
@@ -42,9 +42,6 @@
 			}
 		},
 		methods: {
-			...mapMutations([
-				'ADD_HOLIDAY',
-			]),
 			submit(e) {
 				e.preventDefault();
 				if(this.dates.length > 0)
@@ -52,17 +49,22 @@
 					if(this.$refs.form.validate())
 					{
 						this.dates.forEach((value) => {
-							this.ADD_HOLIDAY({
-								date: value,
-								comment: this.comments
+
+							this.$apollo.mutate({
+								mutation: ADD_USER_HOLIDAY_MUTATION,
+								variables: {
+									date: value,
+									comment: this.comments,
+									userId: this.$store.state.username
+								}
+							}).then(() => {
+								//Show Snackbar
+								this.$emit('actionSuccess');
 							});
 						});
 
-						//Show Snackbar
-						this.$emit('actionSuccess');
-
 						//Clear Form
-						this.$refs.form.reset()
+						//this.$refs.form.reset()
 					}
 				}
 			},

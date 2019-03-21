@@ -35,7 +35,11 @@ Click to visit and download the dependencies
 * [Node](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com/en/) (Optional, but recommended)
 * [Vue](https://vuejs.org/)
+* [Vuex](https://vuex.vuejs.org/)
 * [Vuetify](https://vuetifyjs.com/en/)
+* [Vuetify Upload Button](https://github.com/DoritoBandito/vuetify-upload-button)
+* [FS2](https://www.npmjs.com/package/fs2)
+* [GraphQL](https://graphql.org/)
 * [date-fns](https://date-fns.org/)
 * [Lodash](https://lodash.com/)
 * [Papaparse](https://www.papaparse.com/)
@@ -64,29 +68,29 @@ npm install
 ```
 
 #### Development Compile & Hot-Reload
-###### For NPM Users:
-
-```
-###### npm run serve
-```
-
-###### For Yarn Users:
-
-```
-yarn serve
-```
-
-#### Development Compile & Hot-Reload
-###### For NPM Users:
+###### NPM:
 
 ```
 npm run serve
 ```
 
-###### For Yarn Users:
+###### Yarn:
 
 ```
 yarn serve
+```
+
+#### Production Build
+###### NPM:
+
+```
+npm run build
+```
+
+###### Yarn:
+
+```
+yarn build
 ```
 
 #### Lints and Fixes

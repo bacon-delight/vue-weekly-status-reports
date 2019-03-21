@@ -12,7 +12,7 @@
 		</v-card-title>
 		<v-divider></v-divider>
 		<v-card-text>
-			<v-data-table :headers="headers" :items="holidays" :search="search">
+			<v-data-table :headers="headers" :items="this.$store.state.holidays" :search="search">
 				<template v-slot:items="props">
 					<td>{{ formatDate(props.item.date) }}</td>
 					<td>{{ props.item.comment }}</td>
@@ -24,6 +24,8 @@
 
 <script>
 	import { format } from 'date-fns';
+	import { USER_HOLIDAYS_QUERY } from '../constants/graphql.js';
+
 	export default {
 		name: 'HolidayList',
 		data() {
@@ -32,17 +34,29 @@
 					{text: 'Dates', value: 'date'},
 					{text: 'Comment', value: 'comment'},
 				],
-				holidays: this.$store.state.holidays,
-				search: ''
+				search: '',
 			}
 		},
-		computed: {
+		apollo: {
+			userHolidays: {
+				query: USER_HOLIDAYS_QUERY,
+				variables() {
+					return {
+						userId: this.$store.state.username
+					}
+				},
+				result(response) {
+					// Commit to Store
+					this.$store.commit('FETCH_HOLIDAYS',response.data.userHolidays);
+				},
+				pollInterval: 5000
+			}
 		},
 		methods: {
 			formatDate(value) {
 				return format(value, 'Do MMMM, YYYY');
 			}
-		}
+		},
 	}
 </script>
 
