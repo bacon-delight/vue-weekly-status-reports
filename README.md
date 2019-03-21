@@ -4,7 +4,8 @@
 	<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
-	<img alt="Requires.io" src="https://img.shields.io/requires/github/bacon-delight/philips-wsr.svg?style=for-the-badge">
+	<a href="https://requires.io/github/bacon-delight/philips-wsr/requirements/?branch=gh-pages"><img src="https://requires.io/github/bacon-delight/philips-wsr/requirements.svg?branch=gh-pages" alt="Requirements Status" /></a>
+	<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/bacon-delight/philips-wsr.svg?label=Open%20Issues&style=for-the-badge">
 	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed-raw/bacon-delight/philips-wsr.svg?label=Closed%20Issues&style=for-the-badge">
 	<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr-raw/bacon-delight/philips-wsr.svg?label=Pull%20Requests%20%28Open%29&style=for-the-badge">
@@ -15,6 +16,12 @@
 <p>
 	<img alt="GitHub release" src="https://img.shields.io/github/release-pre/bacon-delight/philips-wsr.svg?label=Pre%20Release&style=for-the-badge">
 	<img alt="GitHub release" src="https://img.shields.io/github/release/bacon-delight/philips-wsr.svg?style=for-the-badge">
+</p>
+
+### Release Dates
+<p>
+	<img alt="GitHub (Pre-)Release Date" src="https://img.shields.io/github/release-date-pre/bacon-delight/philips-wsr.svg?label=PRE%20RELEASE&style=for-the-badge">
+	<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/bacon-delight/philips-wsr.svg?label=RELEASE&style=for-the-badge">
 </p>
 
 ### Langauge Details
