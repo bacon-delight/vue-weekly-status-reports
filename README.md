@@ -4,7 +4,6 @@
 	<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/bacon-delight/philips-wsr.svg?style=for-the-badge">
-	<a href="https://requires.io/github/bacon-delight/philips-wsr/requirements/?branch=gh-pages"><img src="https://requires.io/github/bacon-delight/philips-wsr/requirements.svg?branch=gh-pages" alt="Requirements Status" /></a>
 	<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/bacon-delight/philips-wsr.svg?style=for-the-badge">
 	<img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/bacon-delight/philips-wsr.svg?label=Open%20Issues&style=for-the-badge">
 	<img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed-raw/bacon-delight/philips-wsr.svg?label=Closed%20Issues&style=for-the-badge">
@@ -37,7 +36,7 @@
 [View Latest Release](https://bacon-delight.github.io/philips-wsr/)
 
 ## Dependencies
-Click to visit and download the dependencies
+<a href="https://requires.io/github/bacon-delight/philips-wsr/requirements/?branch=gh-pages"><img src="https://requires.io/github/bacon-delight/philips-wsr/requirements.svg?branch=gh-pages" alt="Requirements Status" /></a>
 
 * [Node](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com/en/) (Optional, but recommended)
