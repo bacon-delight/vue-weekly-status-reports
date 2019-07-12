@@ -48,7 +48,6 @@
 <a href="https://requires.io/github/bacon-delight/weekly-status-reports/requirements/?branch=gh-pages"><img src="https://requires.io/github/bacon-delight/weekly-status-reports/requirements.svg?branch=master" alt="Requirements Status" /></a>
 
 * [Node](https://nodejs.org/en/)
-* [Yarn](https://yarnpkg.com/en/) (Optional, but recommended)
 * [Vue](https://vuejs.org/)
 * [Vuex](https://vuex.vuejs.org/)
 * [Vuetify](https://vuetifyjs.com/en/)
@@ -75,49 +74,23 @@ git clone https://github.com/bacon-delight/weekly-status-reports.git .
 ```
 
 #### Install Node Dependencies
-This requires node.js installed, please download and install the latest version from their official website given in the list of dependencies above.
 
 ```
 npm install
 ```
 
 #### Development Compile & Hot-Reload
-###### NPM:
 
 ```
 npm run serve
 ```
 
-###### Yarn:
-
-```
-yarn serve
-```
-
 #### Production Build
-###### NPM:
 
 ```
 npm run build
 ```
 
-###### Yarn:
-
-```
-yarn build
-```
-
-#### Lints and Fixes
-
-```
-npm run lint
-```
-
-#### Run Tests
-
-```
-npm run lint
-```
 
 ## Disclaimer
 This is an Open Source application and we take no responsibility for any issues, bugs and conflicts encountered while running this application in environments not controlled and managed by us. Please read license for more information.
