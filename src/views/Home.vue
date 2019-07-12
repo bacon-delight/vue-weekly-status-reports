@@ -12,7 +12,7 @@
 				<!-- Login Form -->
 				<v-form ref="form" @submit.prevent="submit">
 					<!-- Username Input -->
-					<v-text-field label="Philips Mail" v-model="username" hint="username@philips.com" :rules="inputRules"></v-text-field>
+					<v-text-field label="Company Mail" v-model="username" hint="username@company.com" :rules="inputRules"></v-text-field>
 					<!-- Submit -->
 					<v-btn flat class="success mx-0 mt-3" :loading="loading" @click="submit">
 						<span>Enter</span>
