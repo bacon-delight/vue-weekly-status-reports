@@ -73,10 +73,10 @@
 				}
 			},*/
 			reportBug() {
-				window.open("https://github.com/bacon-delight/philips-wsr/issues/new?assignees=&labels=&template=bug_report.md&title=", "_blank");
+				window.open("https://github.com/bacon-delight/weekly-status-reports/issues/new?assignees=&labels=&template=bug_report.md&title=", "_blank");
 			},
 			featureRequest() {
-				window.open("https://github.com/bacon-delight/philips-wsr/issues/new?assignees=&labels=&template=feature_request.md&title=", "_blank");
+				window.open("https://github.com/bacon-delight/weekly-status-reports/issues/new?assignees=&labels=&template=feature_request.md&title=", "_blank");
 			}
 		}
 	}

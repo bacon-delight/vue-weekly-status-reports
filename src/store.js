@@ -9,15 +9,13 @@ export default new Vuex.Store({
 		reportsT1: [],
 		reportsT2: [],
 		optionsT2: {
-			resourceOptions: ['Abdul Kalam Azad', 'Ashish Anand', 'Atul Shah', 'Dan Gillette', 'Daniel Daniels', 'Daniela Baldazzi', 'Hemant Kumar Joshi', 'Jason Flores', 'Jason Young', 'Manoj Kumar Sharma', 'Mohammed Khalid Nehan', 'Prashant Kumar', 'Ramakanth Porolla', 'Rana Abhishek Singh', 'Sarang Tade', 'Twan Jansen', 'Veenashree M E', 'Yogesh Shukla'],
-			clientRegionOptions: ['ANZ', 'APAC', 'EU', 'LATAM', 'MET', 'NA'],
-			projectProductOptions: ['DECG', 'DWP', 'IECG', 'ISCV', 'PB', 'PedsCath', 'XcC', 'Xcelera', 'XpC', 'XPER'],
-			projectActivityOptions: ['Broker Migration', 'Context Launch', 'EMPI', 'Extensions', 'ICL', 'Image Migration', 'Interface Addition', 'MRN Conversion', 'N-1', 'Net New', 'New EMR/HIS', 'Post Go-Live Support', 'Report Registration', 'Report Resend', 'Server Build', 'Training', 'Upgrade'],
-			statusOptions: ['Cancelled', 'Complete', 'No Info', 'No Scope', 'Not Started', 'On Hold - Client', 'On Hold - Philips', 'WIP'],
-			phaseOptiona: ['Assigned', 'Configurations', 'Customizations', 'Documentation', 'Go-Live Planning', 'Kick Off', 'Live', 'Resource Requested', 'Site Survey', 'TTS', 'UAT', 'Unit Testing', 'Waiting for Servers'],
-			timeEntryOptions: ['Yes', 'No', 'Request Sent', 'Pending'],
-			projectNameOptions: ['IBE CONFIGURATION', 'IBE FOR DWP', 'IBE for iECG', 'IBE FOR ISCV', 'IBE for PedsCath', 'IBE For Xcelera', 'IBE FOR XPER', 'IBE GO-LIVE SUPPORT', 'IBE L2 Support', 'IBE SA TRAINING', 'IBE SERVER BUILD', 'IBE UPGRADE', 'MRN CONVERSION', 'XCC SUPPORT', 'XCC TO IBE MIGRATION', 'XpC CONFIGURATION', 'XpC NET NEW', 'XPC TO IBE MIGRATION', 'XpC UPGRADE'],
-			projectManagerOptions: ['Alicia Mickel', 'Amir Rosenbloom', 'Belinda Peck-Akisanmi', 'Bermont Leblanc', 'Bert Reinders', 'Bowen Rice', 'Brian Beasley', 'Bruce Graham', 'Carter Carter', 'Catherine Senz', 'Chris Botelho', 'Christian Thompson', 'Clarisse Loechleiter', 'Cormac Waynne', 'Daniel Daniels', 'David Lam', 'Deborah Suraci', 'Deirdre Thomas', 'Dennis Soroczak', 'Don Hauck', 'Donald Martineau', 'Eric Wagenknecht', 'Faraz Muhammad', 'Garland Jonshon', 'George Mulligan', 'Girish Muttagi', 'Jackie Crouser', 'Janet Sobczak', 'Jeremy Ebenezer Wang', 'John Ives', 'John Laundon', 'Joseph Shearn', 'Karen Fitzmaurice', 'Karie Randall', 'Kelly Franz', 'Kent Carle', 'Koen Heijnen', 'Kumaran Thayumanavan ', 'Lijoy ', 'Luke Kearns', 'Luke Thomas', 'Marc Joosten', 'Marché Williams', 'Mark Brennan', 'Mary L. Millette', 'Matthew Croxford', 'Michael Lyons', 'Michelle Fox', 'Nixon Khoo', 'No Pm For This N-1.', 'Pablo Naveas', 'Pattachai', 'Paul Campbell', 'Paul De Wergifosse', 'Peter Gakuru', 'Richard Brooks', 'Rick Lawton', 'Rick O\'Brien', 'Ronald Krebes', 'Ruurd Sanders', 'Samhita Gaddam', 'Samuel Straughan', 'Sanjay Patel', 'Sarah Englert', 'Sarut Praditpan', 'Scott Barnes', 'Sheikh Mahmood', 'Stephane Denault', 'Stephen French', 'Tan Chun Hooi', 'Thomas Clohessy', 'Tony Drake', 'Twan Jansen']
+			resourceOptions: ['Grant Gustin', 'Barry Allen', 'Caitlyn Snow', 'Cisco Ramone'],
+			clientRegionOptions: ['ANZ', 'APAC', 'EU', 'LATAM', 'Other'],
+			projectActivityOptions: ['Post Go-Live Support', 'Server Build', 'Training', 'Upgrade'],
+			statusOptions: ['Cancelled', 'Complete', 'No Info', 'No Scope', 'Not Started', 'On Hold', 'Work In Progress'],
+			phaseOptions: ['Assigned', 'Installations', 'Documentation', 'Go-Live Planning', 'Kick Off', 'Live', 'Unit Testing', 'Waiting for Servers'],
+			projectNameOptions: ['Project MK Ultra', 'Project X', 'Hunger Games'],
+			projectManagerOptions: ['John Doe', 'Natalie Byers', 'Will Robinson', 'Tala Ashe', 'LA Thoma']
 		},
 		username: ''
 	},

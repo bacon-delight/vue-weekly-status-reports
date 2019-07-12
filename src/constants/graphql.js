@@ -51,7 +51,6 @@ export const FETCH_USER_ARCHIVE2 = gql`
 			secondary,
 			clientRegion,
 			client,
-			projectProduct,
 			projectName,
 			projectActivity,
 			status,
@@ -66,23 +65,20 @@ export const FETCH_USER_ARCHIVE2 = gql`
 			date7,
 			date8,
 			date9,
-			timeEntry,
-			opemEms,
-			totalBilled,
 			comments
 		}
 	}`
 
 export const PUBLISH_REPORT2 = gql`
-	mutation ($userId: String!, $year: String, $weekNumber: String, $weekEnding: String, $primary: String, $secondary: String, $clientRegion: String, $client: String, $projectProduct: String, $projectName: String, $projectActivity: String, $status: String, $phase: String, $projectManager: String, $date1: String, $date2: String, $date3: String, $date4: String, $date5: String, $date6: String, $date7: String, $date8: String, $date9: String, $timeEntry: String, $opemEms: String, $totalBilled: String, $comments: String) {
-		addArchive2(userId: $userId, year: $year, weekNumber: $weekNumber, weekEnding: $weekEnding, primary: $primary, secondary: $secondary, clientRegion: $clientRegion, client: $client, projectProduct: $projectProduct, projectName: $projectName, projectActivity: $projectActivity, status: $status, phase: $phase, projectManager: $projectManager, date1: $date1, date2: $date2, date3: $date3, date4: $date4, date5: $date5, date6: $date6, date7: $date7, date8: $date8, date9: $date9, timeEntry: $timeEntry, opemEms: $opemEms, totalBilled: $totalBilled, comments: $comments) {
+	mutation ($userId: String!, $year: String, $weekNumber: String, $weekEnding: String, $primary: String, $secondary: String, $clientRegion: String, $client: String, $projectName: String, $projectActivity: String, $status: String, $phase: String, $projectManager: String, $date1: String, $date2: String, $date3: String, $date4: String, $date5: String, $date6: String, $date7: String, $date8: String, $date9: String, $comments: String) {
+		addArchive2(userId: $userId, year: $year, weekNumber: $weekNumber, weekEnding: $weekEnding, primary: $primary, secondary: $secondary, clientRegion: $clientRegion, client: $client, projectName: $projectName, projectActivity: $projectActivity, status: $status, phase: $phase, projectManager: $projectManager, date1: $date1, date2: $date2, date3: $date3, date4: $date4, date5: $date5, date6: $date6, date7: $date7, date8: $date8, date9: $date9, comments: $comments) {
 			id
 		}
 	}`
 
 export const PUBLISH_REPORT2_BULK = gql`
-	mutation ($userId: String!, $year: String, $weekNumber: String, $weekEnding: String, $primary: String, $secondary: String, $clientRegion: String, $client: String, $projectProduct: String, $projectName: String, $projectActivity: String, $status: String, $phase: String, $projectManager: String, $date1: String, $date2: String, $date3: String, $date4: String, $date5: String, $date6: String, $date7: String, $date8: String, $date9: String, $timeEntry: String, $opemEms: String, $totalBilled: String, $comments: String) {
-		addArchive2(userId: $userId, year: $year, weekNumber: $weekNumber, weekEnding: $weekEnding, primary: $primary, secondary: $secondary, clientRegion: $clientRegion, client: $client, projectProduct: $projectProduct, projectName: $projectName, projectActivity: $projectActivity, status: $status, phase: $phase, projectManager: $projectManager, date1: $date1, date2: $date2, date3: $date3, date4: $date4, date5: $date5, date6: $date6, date7: $date7, date8: $date8, date9: $date9, timeEntry: $timeEntry, opemEms: $opemEms, totalBilled: $totalBilled, comments: $comments) {
+	mutation ($userId: String!, $year: String, $weekNumber: String, $weekEnding: String, $primary: String, $secondary: String, $clientRegion: String, $client: String, $projectName: String, $projectActivity: String, $status: String, $phase: String, $projectManager: String, $date1: String, $date2: String, $date3: String, $date4: String, $date5: String, $date6: String, $date7: String, $date8: String, $date9: String, $comments: String) {
+		addArchive2(userId: $userId, year: $year, weekNumber: $weekNumber, weekEnding: $weekEnding, primary: $primary, secondary: $secondary, clientRegion: $clientRegion, client: $client, projectName: $projectName, projectActivity: $projectActivity, status: $status, phase: $phase, projectManager: $projectManager, date1: $date1, date2: $date2, date3: $date3, date4: $date4, date5: $date5, date6: $date6, date7: $date7, date8: $date8, date9: $date9, comments: $comments) {
 			id
 		}
 	}`

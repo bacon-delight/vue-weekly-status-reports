@@ -10,9 +10,8 @@ import VueApollo from 'vue-apollo'
 Vue.use(VueApollo)
 
 const apolloClient = new ApolloClient({
-  // You should use an absolute URL here
-  //uri: 'http://localhost:4001/graphql'
-  uri: 'https://philips-wsr-server.herokuapp.com/graphql'
+	uri: 'http://localhost:4001/graphql'
+	//uri: 'https://philips-wsr-server.herokuapp.com/graphql'
 })
 
 const apolloProvider = new VueApollo({

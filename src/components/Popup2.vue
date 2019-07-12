@@ -78,14 +78,6 @@
 				</v-layout>
 				<v-layout row wrap>
 					<v-flex xs12 sm6 class="pa-2" id="topics">
-						Project Product:
-					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.projectProduct }}
-					</v-flex>
-				</v-layout>
-				<v-layout row wrap>
-					<v-flex xs12 sm6 class="pa-2" id="topics">
 						Project Activity:
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
@@ -189,34 +181,6 @@
 					</v-flex>
 					<v-flex xs12 sm6 class="pa-2" id="contents">
 						{{ formatDate(this.report.date9) }}
-					</v-flex>
-				</v-layout>
-
-
-
-				<!-- Additional Details -->
-				<v-layout row wrap>
-					<v-flex xs12 sm6 class="pa-2" id="topics">
-						Assigned for Time Entry:
-					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.timeEntry }}
-					</v-flex>
-				</v-layout>
-				<v-layout row wrap>
-					<v-flex xs12 sm6 class="pa-2" id="topics">
-						One EMS Number:
-					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.opemEms }}
-					</v-flex>
-				</v-layout>
-				<v-layout row wrap>
-					<v-flex xs12 sm6 class="pa-2" id="topics">
-						Total Billed Hours:
-					</v-flex>
-					<v-flex xs12 sm6 class="pa-2" id="contents">
-						{{ this.report.totalBilled }}
 					</v-flex>
 				</v-layout>
 

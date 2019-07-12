@@ -5,7 +5,7 @@
 		<v-toolbar app>
 			<v-toolbar-side-icon class="grey--text" @click="drawer = !drawer" v-if="['dashboard','template1','archive1','template2','archive2','feedback'].includes($route.name)"></v-toolbar-side-icon>
 			<v-toolbar-title class="text-uppercase grey-text"> 
-				<span class="font-weight-light">EIS </span>
+				<span class="font-weight-light">Bilonz </span>
 				<span>Weekly Status Reports</span>
 			</v-toolbar-title>
 		</v-toolbar>

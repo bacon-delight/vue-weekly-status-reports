@@ -29,7 +29,7 @@
 
 		<v-layout row wrap>
 			<v-flex xs12 sm6 class="pa-3">
-				<v-text-field label="Distribution/Project Manager" prepend-icon="person" :rules="inputRules" v-model="newReport.distribution"></v-text-field>
+				<v-text-field label="Project Manager" prepend-icon="person" :rules="inputRules" v-model="newReport.distribution"></v-text-field>
 			</v-flex>
 			<v-flex xs12 sm6 class="pa-3">
 				<v-text-field label="Project Name" prepend-icon="folder_special" :rules="inputRules" v-model="newReport.project"></v-text-field>

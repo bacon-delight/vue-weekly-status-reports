@@ -56,16 +56,13 @@
 								<v-select :items="this.$store.state.optionsT2.projectManagerOptions" prepend-icon="person" v-model="newReport.projectManager" label="Project Manager"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="this.$store.state.optionsT2.projectProductOptions" prepend-icon="shopping_cart" v-model="newReport.projectProduct" label="Project Product"></v-select>
-							</v-flex>
-							<v-flex xs12 md6 class="px-2">
 								<v-select :items="this.$store.state.optionsT2.projectActivityOptions" prepend-icon="trending_up" v-model="newReport.projectActivity" label="Project Activity"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
 								<v-select :items="this.$store.state.optionsT2.statusOptions" prepend-icon="gavel" v-model="newReport.status" label="Status"></v-select>
 							</v-flex>
 							<v-flex xs12 md6 class="px-2">
-								<v-select :items="this.$store.state.optionsT2.phaseOptiona" prepend-icon="hourglass_empty" v-model="newReport.phase" label="Phase"></v-select>
+								<v-select :items="this.$store.state.optionsT2.phaseOptions" prepend-icon="hourglass_empty" v-model="newReport.phase" label="Phase"></v-select>
 							</v-flex>
 						</v-layout>
 					</v-card-text>
@@ -94,7 +91,7 @@
 							<v-flex xs12 md4 class="pa-2">
 								<v-menu ref="menu2" v-model="menu2" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date2" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="newReport.date2" label="Temp Go Live Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date2" label="Temporary Go Live Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
 									<v-date-picker v-model="newReport.date2" no-title scrollable>
 										<v-spacer></v-spacer>
@@ -118,7 +115,7 @@
 							<v-flex xs12 md4 class="pa-2">
 								<v-menu ref="menu4" v-model="menu4" :close-on-content-click="false" :nudge-right="40" :return-value.sync="newReport.date4" lazy transition="scale-transition" offset-y full-width min-width="290px">
 									<template v-slot:activator="{ on }">
-										<v-text-field v-model="newReport.date4" label="Servers Available on PRS Date" prepend-icon="event" readonly v-on="on"></v-text-field>
+										<v-text-field v-model="newReport.date4" label="Servers Availability Date" prepend-icon="event" readonly v-on="on"></v-text-field>
 									</template>
 									<v-date-picker v-model="newReport.date4" no-title scrollable>
 										<v-spacer></v-spacer>
@@ -193,27 +190,6 @@
 			</v-expansion-panel>
 		</v-layout>
 
-		<v-layout class="pa-3" row>
-			<v-expansion-panel>
-				<v-expansion-panel-content>
-					<div slot="header">Additional Details</div>
-					<v-card-text class="px-4 grey--text">
-						<v-layout row wrap>
-							<v-flex xs12 class="pa-2">
-								<v-select :items="this.$store.state.optionsT2.timeEntryOptions" prepend-icon="restore" v-model="newReport.timeEntry" label="Assigned for Time Entry"></v-select>
-							</v-flex>
-							<v-flex xs12 sm6 class="pa-2">
-								<v-text-field label="One EMS Number" prepend-icon="style" v-model="newReport.opemEms"></v-text-field>
-							</v-flex>
-							<v-flex xs12 sm6 class="pa-2">
-								<v-text-field label="Total Billed Hours" prepend-icon="attach_money" v-model="newReport.totalBilled"></v-text-field>
-							</v-flex>
-						</v-layout>
-					</v-card-text>
-				</v-expansion-panel-content>
-			</v-expansion-panel>
-		</v-layout>
-
 		<v-layout row wrap>
 			<v-flex xs12 class="px-3">
 				<v-textarea label="Comments" prepend-icon="comment" v-model="newReport.comments"></v-textarea>
@@ -258,7 +234,6 @@
 					secondary: '',
 					clientRegion: '',
 					client: '',
-					projectProduct: '',
 					projectName: '',
 					projectActivity: '',
 					status: '',
@@ -273,9 +248,6 @@
 					date7: '',
 					date8: '',
 					date9: '',
-					timeEntry: '',
-					opemEms: '',
-					totalBilled: '',
 					comments: ''
 				}
 			}
@@ -324,7 +296,6 @@
 							secondary: this.newReport.secondary,
 							clientRegion: this.newReport.clientRegion,
 							client: this.newReport.client,
-							projectProduct: this.newReport.projectProduct,
 							projectName: this.newReport.projectName,
 							projectActivity: this.newReport.projectActivity,
 							status: this.newReport.status,
@@ -339,9 +310,6 @@
 							date7: this.newReport.date7,
 							date8: this.newReport.date8,
 							date9: this.newReport.date9,
-							timeEntry: this.newReport.timeEntry,
-							opemEms: this.newReport.opemEms,
-							totalBilled: this.newReport.totalBilled,
 							comments: this.newReport.comments
 						}
 					}).then(() => {
@@ -354,7 +322,6 @@
 							secondary: this.newReport.secondary,
 							clientRegion: this.newReport.clientRegion,
 							client: this.newReport.client,
-							projectProduct: this.newReport.projectProduct,
 							projectName: this.newReport.projectName,
 							projectActivity: this.newReport.projectActivity,
 							status: this.newReport.status,
@@ -369,9 +336,6 @@
 							date7: this.newReport.date7,
 							date8: this.newReport.date8,
 							date9: this.newReport.date9,
-							timeEntry: this.newReport.timeEntry,
-							opemEms: this.newReport.opemEms,
-							totalBilled: this.newReport.totalBilled,
 							comments: this.newReport.comments
 						});
 
