@@ -12,9 +12,7 @@
 </p>
 
 ### Like this Repository? Buy me a coffee!
-
-<p><a href="https://www.buymeacoffee.com/baconDelight" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/black_img.png" alt="Buy Me A Coffee!" style="height: auto !important;width: auto !important;" ></a></p>
-
+[![BuyMeACoffe](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/baconDelight)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/dipanjan131)
 
 ### Latest Releases
