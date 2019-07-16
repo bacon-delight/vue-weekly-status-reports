@@ -13,7 +13,6 @@
 
 ### Like this Repository? Buy me a coffee!
 [![BuyMeACoffe](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/baconDelight)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/dipanjan131)
 
 ### Latest Releases
 <p>
