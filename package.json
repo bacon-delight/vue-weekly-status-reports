@@ -13,7 +13,7 @@
 		"fs2": "^0.3.4",
 		"graphql": "^14.1.1",
 		"lodash": "^4.17.11",
-		"papaparse": "^4.6.3",
+		"papaparse": "^5.2.0",
 		"register-service-worker": "^1.6.2",
 		"vue": "^2.6.6",
 		"vue-apollo": "^3.0.0-beta.28",
